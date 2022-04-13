@@ -26,11 +26,18 @@ app.get('/users', (req, res)  => {
     res.json({ ok: true, users });
 });
 
+// get one user
+app.get('/user/:name', (req, res) => {
+    const { name } = req.params;
+    const user = users.filter((user) => user.name)[0];
+    res.json({ ok: true, user });
+});
 
+// this request will add a user
 app.post('/adduser', (req, res)  => {
     const { name, email } = req.body;
     if (name && email) {
-        users.push({ name, email }) = req.body;
+        users.push({ name, email });
         res.json({ok: true, users});
     }
 }); 
