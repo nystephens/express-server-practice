@@ -9,41 +9,7 @@ const port = process.env.PORT || 3001
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const users = [
-    {name: 'Johnny', email: 'johnny@onthespot.com'},
-    {name: 'Kevin', email: 'kevin@whereskevin.com'},
-    {name: 'Jason', email: 'jasony@campcrystallake.com'},
-    {name: 'Freddy', email: 'nightmare@elm.com'}
-];
-
-// this is the simple get request
-app.get('/', (req, res)  => {
-    res.send("Nate's Express App")
-});
-
-// get all users
-app.get('/users', (req, res)  => {
-    res.json({ ok: true, users });
-});
-
-// get one user
-app.get('/user/:name', (req, res) => {
-    const { name } = req.params;
-    const user = users.filter((user) => user.name)[0];
-    res.json({ ok: true, user });
-});
-
-// this request will add a user
-app.post('/adduser', (req, res)  => {
-    const { name, email } = req.body;
-    if (name && email) {
-        users.push({ name, email });
-        res.json({ok: true, users});
-    }
-}); 
-
-
-
+app.use('/', require('./routes/users'));
 
 app.listen(port, () => {
     // remember: backticks means you can insert variables with the ${syntax}

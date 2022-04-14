@@ -4,7 +4,8 @@
   "description": "I'm a little rusty so I'm creating this express server for practice.  Will provide tutorial in README for future reference.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
