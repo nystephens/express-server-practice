@@ -1,3 +1,6 @@
+const express = require('express');
+const router = new express.Router();
+
 const users = [
     {name: 'Johnny', email: 'johnny@onthespot.com'},
     {name: 'Kevin', email: 'kevin@whereskevin.com'},
@@ -30,3 +33,5 @@ router.post('/adduser', (req, res)  => {
         res.json({ok: true, users});
     }
 }); 
+
+module.exports = router;
